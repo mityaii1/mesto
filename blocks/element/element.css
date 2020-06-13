@@ -1,0 +1,13 @@
+@import url(./__image/element__image.css);
+@import url(./__title/element__title.css);
+@import url(./__button-like/element__button-like.css);
+.element {
+    display: grid;
+    grid-template-areas: "image image" "title button-like";
+    grid-template-columns: 222px 60px;
+    grid-template-rows: 282px 80px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    
+    overflow: hidden;
+}

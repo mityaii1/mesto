@@ -1,0 +1,12 @@
+.element__title {
+    grid-area: title;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 100%;
+    color: #000000;
+    margin: auto 0 auto 21px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    
+}

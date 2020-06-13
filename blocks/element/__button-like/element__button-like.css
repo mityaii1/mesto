@@ -1,0 +1,11 @@
+.element__button-like{
+    grid-area: button-like;
+    width: 21px;
+    height: 19px;
+    padding: 0;
+    margin: auto;
+    margin-right: 22px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}

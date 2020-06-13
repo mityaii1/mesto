@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Mesto Russia</title>
+</head>
+
+<body>
+    <div class="page">
+        <header class="header">
+            <img class="header__logo" src="./images/header-logo.svg" alt="Лого">
+        </header>
+        <main class="content">
+            <section class="profile">
+                <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар">
+                <div class="profile__info">
+                    <div class="profile__edit-form">
+                        <h1 class="profile__title">
+                            Жак-Ив Кусто
+                        </h1>
+                        <button class="profile__edit-button transparent" type="button">
+                            <img src="./images/edit-button.svg" alt="Кнопка редактировать">
+                        </button>
+                    </div>
+                    <p class="profile__subtitle">
+                        Исследователь океана
+                    </p>
+                </div>
+                <button class="profile__add-button transparent" type="button">
+                    <img src="./images/add-button.svg" alt="Кнопка добавить">
+                </button>
+            </section>
+            <section class="popup">
+                <form class="popup__container">
+                    <button class="popup__close-icon transparent">
+                        <img src="./images/close-Icon.svg" alt="Кнопка закрыть">
+                    </button>
+                    <h2 class="popup__title">
+                        Редактировать профиль
+                    </h2>
+                    <input type="text" class="popup__input popup__input_name" value="Жак-Ив Кусто" placeholder="Имя">
+                    <input type="text" class="popup__input popup__input_about-me" value="Исследователь океана"
+                        placeholder="О себе">
+                    <button type="submit" class="popup__button-save transparent">Сохранить</button>
+                </form>
+            </section>
+            <section class="elements">
+                <div class="element">
+                    <img src="./images/Ekat.jpg" class="element__image" alt="Екатеринбург">
+                    <h3 class="element__title">
+                        Екатеринбург
+                    </h3>
+                    <button class="element__button-like">
+                        <img src="./images/like.svg" alt="Нравиться">
+                    </button>
+                </div>
+                <div class="element">
+                    <img src="./images/Kalininqrad.jpg" class="element__image" alt="Калининград">
+                    <h3 class="element__title">
+                        Калининград
+                    </h3>
+                    <button class="element__button-like">
+                        <img src="./images/like.svg" alt="Нравиться">
+                    </button>
+                </div>
+                <div class="element">
+                    <img src="./images/Moskva-city.jpg" class="element__image" alt="Москва">
+                    <h3 class="element__title">
+                        Москва-сити
+                    </h3>
+                    <button class="element__button-like">
+                        <img src="./images/like.svg" alt="Нравиться">
+                    </button>
+                </div>
+                <div class="element">
+                    <img src="./images/Nigniy-novgorod.jpg" class="element__image" alt="Нижний Новгород">
+                    <h3 class="element__title">
+                        Нижний Новгород
+                    </h3>
+                    <button class="element__button-like">
+                        <img src="./images/like.svg" alt="Нравиться">
+                    </button>
+                </div>
+                <div class="element">
+                    <img src="./images/sankt-peterburg.jpg" class="element__image" alt="Санкт-Петербург">
+                    <h3 class="element__title">
+                        Санкт-Петербург
+                    </h3>
+                    <button class="element__button-like">
+                        <img src="./images/like.svg" alt="Нравиться">
+                    </button>
+                </div>
+                <div class="element">
+                    <img src="./images/sochi.jpg" class="element__image" alt="Сочи">
+                    <h3 class="element__title">
+                        Сочи
+                    </h3>
+                    <button class="element__button-like">
+                        <img src="./images/like.svg" alt="Нравиться">
+                    </button>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            &copy; 2020 Mesto Russia
+        </footer>
+    </div>
+    <script src="./scripts/script.js"></script>
+</body>
+
+</html>
