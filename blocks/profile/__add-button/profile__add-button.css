@@ -8,10 +8,14 @@
     border-radius: 2px;
     background: transparent;
     cursor: pointer;
+    background-image: url(../../../images/add-button.svg);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 @media screen and (max-width: 767px) {
     .profile__add-button {
         width: 282px;
+        margin-top: 25px;
     }
 }

@@ -6,4 +6,9 @@
     color: #ffffff;
     font-size: 18px;
     line-height: 122%;
+    border: none;
+}
+.popup__button-save:hover{
+    transition: .2s ease-in;
+    background: rgba(0, 0, 0, 0.8);
 }

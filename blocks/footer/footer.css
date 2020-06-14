@@ -1,24 +1,15 @@
+@import url(./__copyright/footer__copyright.css);
 .footer {
     max-width: 882px;
-    margin: auto;
-    padding-bottom: 60px;
-    color: #545454;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 122%;
+    margin: 0 auto;
 }
-
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .footer {
         max-width: calc(282px * 2 + 18px);
     }
 }
-
 @media screen and (max-width: 767px) {
     .footer {
         max-width: 282px;
-        font-size: 14px;
-        line-height: 121%;
-        padding-bottom: 36px;
     }
 }
