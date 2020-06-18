@@ -13,8 +13,10 @@ let newAboutMe = popup.querySelector('.popup__input_about-me');
 
 // Открыть и закрыть popup, Заполнить значения из profile
 let popupToggle = function togglePopup() {
-    newName.value = profileTitle.textContent;
-    newAboutMe.value = profileSubtitle.textContent;
+    if (!popup.classList.contains('popup_opened')) {
+        newName.value = profileTitle.textContent;
+        newAboutMe.value = profileSubtitle.textContent;
+    }
     popup.classList.toggle('popup_opened');
 };
 
