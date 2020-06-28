@@ -8,9 +8,18 @@
     line-height: 122%;
     border: none;
     cursor: pointer;
+    outline: none;
 }
 
 .popup__button-save:hover {
     transition: .2s ease-in;
     background: rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (max-width: 767px){
+    .popup__button-save{
+        height: 40px;
+        font-size: 14px;
+        line-height: 121%;
+    }
 }
