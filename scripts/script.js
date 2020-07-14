@@ -1,3 +1,4 @@
+const popup = document.querySelectorAll('.popup');
 // Переменные profile
 const profile = document.querySelector('.profile');
 const profileEditButton = profile.querySelector('.profile__edit-button');
@@ -19,8 +20,8 @@ const elementTemplate = document.querySelector('#element-template');
 const popupCard = document.querySelector('.popup__card');
 const popupContainerCard = popupCard.querySelector('.popup__container-card');
 const popupCloseCard = popupCard.querySelector('.popup__close-card');
-const nameCard = popupCard.querySelector('.popup__input_name-card');
-const linkCard = popupCard.querySelector('.popup__input_link-to-image');
+//const nameCard = popupCard.querySelector('.popup__input_name-card');
+//const linkCard = popupCard.querySelector('.popup__input_link-to-image');
 
 // Переменные elements
 const elements = document.querySelector('.elements');
@@ -31,7 +32,15 @@ const popupCloseImage = popupImage.querySelector('.popup__close-image');
 const popupPreview = popupImage.querySelector('.popup__preview');
 const popupTitleImage = popupImage.querySelector('.popup__title-image');
 
+// Получить форму profile и ее элементы
+const popupEdit = document.forms.popup_edit;
+const fullName = popupEdit.elements.full_name;
+const aboutMe = popupEdit.elements.about_me;
 
+// Получить форму card и ее элементы
+const popupAddCard = document.forms.popup_card;
+const nameCard = popupAddCard.elements.name_card;
+const linkCard = popupAddCard.elements.link_to_image;
 
 // Начальный массив карточек
 const initialCards = [
@@ -84,13 +93,34 @@ initialCards.forEach(function (elem) {
 // Открыть или закрыть popup
 function openClosePopup(elem) {
     elem.classList.toggle('popup_opened');
+
 };
+
+// Закрыть popup кликом на оверлей
+popup.forEach(function (elem) {
+    elem.addEventListener('mousedown', function (evt) {
+        if (evt.target !== event.currentTarget) {
+            return
+        }
+        openClosePopup(evt.target.closest('.popup'));
+        popupAddCard.reset();
+    })
+});
+
+// Закрыть popup кнопкой Escape 
+function closePopupEsc(evt) {
+    const popupOpened = document.querySelector('.popup_opened')
+    if (evt.key === "Escape") {
+        popupAddCard.reset();
+        openClosePopup(popupOpened)
+    }
+}
 
 // Заполнить форму edit profile значениями со страницы
 function popupOpenProfile() {
-        newName.value = profileTitle.textContent;
-        newAboutMe.value = profileSubtitle.textContent;
-        openClosePopup(popupProfile);
+    newName.value = profileTitle.textContent;
+    newAboutMe.value = profileSubtitle.textContent;
+    openClosePopup(popupProfile);
 };
 
 // Изменить значения profile из формы popup
@@ -101,19 +131,15 @@ function formSubmitHandler(evt) {
     openClosePopup(popupProfile);
 };
 
-// Открыть пустую форму popup-card
-function popupOpenCard() {
-   nameCard.value = '';
-   linkCard.value = '';
-   openClosePopup(popupCard)
-};
 
 // Добавить новую карточку из формы
-function formSubmitCard(evt) {
+popupAddCard.addEventListener('submit', function (evt) {
     evt.preventDefault();
     elements.prepend(createCards(nameCard.value, linkCard.value));
-    openClosePopup(popupCard);
-};
+    popupAddCard.reset();
+    openClosePopup(popupCard)
+})
+
 
 //  Увеличить картинку
 function previewImage(evt) {
@@ -123,7 +149,7 @@ function previewImage(evt) {
     popupPreview.alt = item.alt;
     popupTitleImage.textContent = itemText.textContent;
     openClosePopup(popupImage);
-}
+};
 
 // Поставить лайк
 function cardLike(evt) {
@@ -137,9 +163,10 @@ function removeCard(evt) {
 };
 
 profileEditButton.addEventListener('click', popupOpenProfile);
-popupCloseEdit.addEventListener('click', () => { openClosePopup(popupProfile)});
+popupCloseEdit.addEventListener('click', () => { openClosePopup(popupProfile) });
 popupContainerProfile.addEventListener('submit', formSubmitHandler);
-profileAddButton.addEventListener('click', popupOpenCard);
-popupCloseCard.addEventListener('click', () => { openClosePopup(popupCard)});
-popupContainerCard.addEventListener('submit', formSubmitCard);
-popupCloseImage.addEventListener('click', () => { openClosePopup(popupImage)});
+profileAddButton.addEventListener('click', () => { openClosePopup(popupCard) });
+popupCloseCard.addEventListener('click', () => { openClosePopup(popupCard); popupAddCard.reset() });
+popupCloseImage.addEventListener('click', () => { openClosePopup(popupImage) });
+
+document.addEventListener('keydown', (evt) => closePopupEsc(evt));

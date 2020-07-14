@@ -16,6 +16,14 @@
     background: rgba(0, 0, 0, 0.8);
 }
 
+.popup__button-save:disabled{
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    color: #000000;
+    opacity: 0.2;
+    cursor: auto;
+  }
+
 @media screen and (max-width: 767px){
     .popup__button-save{
         height: 40px;

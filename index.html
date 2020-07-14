@@ -19,69 +19,60 @@
                 <div class="profile__info">
                     <div class="profile__edit-form">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
-                        <button class="profile__edit-button transparent" type="button" aria-label="Редактировать">
+                        <button class="profile__button profile__edit-button transparent" type="button"
+                            aria-label="Редактировать">
                         </button>
                     </div>
                     <p class="profile__subtitle">Исследователь океана</p>
                 </div>
-                <button class="profile__add-button transparent" type="button" aria-label="Добавить">
+                <button class="profile__button profile__add-button transparent" type="button" aria-label="Добавить">
                 </button>
             </section>
             <section class="elements">
-                <!--<div class="element">
-                    <img src="./images/ekat.jpg" class="element__image" alt="Екатеринбург">
-                    <h3 class="element__title">Екатеринбург</h3>
-                    <button class="element__button-like transparent" type="button" aria-label="Нравиться"></button>
-                </div>
-                <div class="element">
-                    <img src="./images/kalininqrad.jpg" class="element__image" alt="Калининград">
-                    <h3 class="element__title">Калининград</h3>
-                    <button class="element__button-like transparent" type="button" aria-label="Нравиться"></button>
-                </div>
-                <div class="element">
-                    <img src="./images/moskva-city.jpg" class="element__image" alt="Москва">
-                    <h3 class="element__title">Москва-сити</h3>
-                    <button class="element__button-like transparent" type="button" aria-label="Нравиться"></button>
-                </div>
-                <div class="element">
-                    <img src="./images/nigniy-novgorod.jpg" class="element__image" alt="Нижний Новгород">
-                    <h3 class="element__title">Нижний Новгород</h3>
-                    <button class="element__button-like transparent" type="button" aria-label="Нравиться"></button>
-                </div>
-                <div class="element">
-                    <img src="./images/sankt-peterburg.jpg" class="element__image" alt="Санкт-Петербург">
-                    <h3 class="element__title">Санкт-Петербург</h3>
-                    <button class="element__button-like transparent" type="button" aria-label="Нравиться"></button>
-                </div>
-                <div class="element">
-                    <img src="./images/sochi.jpg" class="element__image" alt="Сочи">
-                    <h3 class="element__title">Сочи</h3>
-                    <button class="element__button-like transparent" type="button" aria-label="Нравиться"></button>
-                </div>-->
             </section>
             <section class="popup popup__profile">
-                <form class="popup__container popup__container-profile" name="popup-edit" action="#" method="post">
+                <div class="popup__container popup__container-profile">
                     <button class="popup__close-icon popup__close-edit transparent" type="button" aria-label="Закрыть">
                     </button>
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <input name="full-name" type="text" class="popup__input popup__input_name" value="Жак-Ив Кусто"
-                        placeholder="Имя">
-                    <input name="about-me" type="text" class="popup__input popup__input_about-me"
-                        value="Исследователь океана" placeholder="О себе">
-                    <button type="submit" class="popup__button-save">Сохранить</button>
-                </form>
+                    <form class="popup__form" name="popup_edit" action="#" method="post" novalidate>
+                        <div class="popup__field">
+                            <input name="full_name" type="text" id="name-input" class="popup__input popup__input_name"
+                                value="Жак-Ив Кусто" placeholder="Имя" required minlength="2" maxlength="40">
+                            <span class="popup__input-error" id="name-input-error"></span>
+                        </div>
+                        <div class="popup__field">
+                            <input name="about_me" type="text" id="about-me-input"
+                                class="popup__input popup__input_about-me" value="Исследователь океана"
+                                placeholder="О себе" required minlength="2" maxlength="200">
+                            <span class="popup__input-error" id="about-me-input-error"></span>
+                        </div>
+                        <button type="submit" class="popup__button-save"">Сохранить</button>
+                    </form>
+                </div>
             </section>
-            <section class="popup popup__card">
-                <form class="popup__container popup__container-card" name="popup-add-card" action="#" method="post">
-                    <button class="popup__close-icon popup__close-card transparent" type="button" aria-label="Закрыть">
-                    </button>
-                    <h2 class="popup__title">Новое место</h2>
-                    <input name="name-card" type="text" class="popup__input popup__input_name-card"
-                        placeholder="Название">
-                    <input name="link-to-image" type="url" class="popup__input popup__input_link-to-image"
-                        placeholder="Ссылка на картинку">
-                    <button type="submit" class="popup__button-save">Создать</button>
-                </form>
+            <section class=" popup popup__card">
+                            <div class="popup__container popup__container-profile">
+                                <button class="popup__close-icon popup__close-card transparent" type="button"
+                                    aria-label="Закрыть">
+                                </button>
+                                <h2 class="popup__title">Новое место</h2>
+                                <form class="popup__form" name="popup_card" action="#" method="post" novalidate>
+                                    <div class="popup__field">
+                                        <input name="name_card" type="text" id="card-input"
+                                            class="popup__input popup__input_name-card" placeholder="Название" required
+                                            minlength="1" maxlength="30">
+                                        <span class="popup__input-error" id="card-input-error"></span>
+                                    </div>
+                                    <div class="popup__field">
+                                        <input name="link_to_image" type="url" id="link-input"
+                                            class="popup__input popup__input_link-to-image"
+                                            placeholder="Ссылка на картинку" required>
+                                        <span class="popup__input-error" id="link-input-error"></span>
+                                    </div>
+                                    <button type="submit" class="popup__button-save">Создать</button>
+                                </form>
+                            </div>
             </section>
             <section class="popup popup__images">
                 <figure class="popup__container-image">
@@ -105,6 +96,7 @@
         </div>
     </template>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/validate.js"></script>
 </body>
 
 </html>
