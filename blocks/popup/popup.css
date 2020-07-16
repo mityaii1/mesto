@@ -21,6 +21,6 @@
     left: 0;
     visibility: hidden;
     opacity: 0;
-    transition: all .8s ease-in-out;
+    transition: all .6s ease-out;
     z-index: 2;
 }
