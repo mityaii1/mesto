@@ -72,9 +72,12 @@ function formProfileSubmitHandler(evt) {
     openClosePopup(popupProfile);
 };
 
-profileEditButton.addEventListener('click', popupOpenProfile);
+profileEditButton.addEventListener('click', () => {
+    popupOpenProfile();
+    profileFormValidator.resetInputError();
+    profileFormValidator.activityStatusButton();
+});
 popupContainerProfile.addEventListener('submit', formProfileSubmitHandler);
-
 popupCloseEdit.addEventListener('click', () => {
     openClosePopup(popupProfile)
 });
