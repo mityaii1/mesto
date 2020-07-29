@@ -11,6 +11,7 @@ export class Card {
         const cardElement = document
             .querySelector('#element-template')
             .content
+            .querySelector('.element')
             .cloneNode(true);
 
         return cardElement;
@@ -20,26 +21,20 @@ export class Card {
         this._setEventListeners();
 
         this._elementCard.image = this._elementCard.querySelector('.element__image');
-        this._elementCard.title = this._elementCard.querySelector('.element__title');
-
         this._elementCard.image.src = this._image;
         this._elementCard.image.alt = this._title;
-        this._elementCard.title.textContent = this._title;
+        this._elementCard.querySelector('.element__title').textContent = this._title;
 
         return this._elementCard;
     }
     _setEventListeners() {
-        this._elementCard.like = this._elementCard.querySelector('.element__button-like');
-        this._elementCard.remove = this._elementCard.querySelector('.element__button-remove');
-        this._elementCard.image = this._elementCard.querySelector('.element__image');
-
-        this._elementCard.like.addEventListener('click', (evt) => {
+        this._elementCard.querySelector('.element__button-like').addEventListener('click', (evt) => {
             this._likeCard(evt);
         });
-        this._elementCard.remove.addEventListener('click', () => {
+        this._elementCard.querySelector('.element__button-remove').addEventListener('click', () => {
             this._removeCard();
         });
-        this._elementCard.image.addEventListener('click', () => {
+        this._elementCard.querySelector('.element__image').addEventListener('click', () => {
             this._previewImage();
         });
     }
@@ -47,8 +42,8 @@ export class Card {
         evt.target.classList.toggle('element__button-like_active');
     }
     _removeCard() {
-        this._element = document.querySelector('.element');
-        this._element.remove()
+        this._elementCard.remove();
+        this._elementCard = null;
     }
     _previewImage() {
         const _popupPreview = document.querySelector('.popup__preview');
@@ -57,5 +52,4 @@ export class Card {
         document.querySelector('.popup__title-image').textContent = this._title;
         openClosePopup(popupImage);
     };
-
 };
