@@ -1,5 +1,5 @@
-export class FormValidator{
-  constructor (obj, formElement){
+export class FormValidator {
+  constructor(obj, formElement) {
     this._formElement = formElement;
     this._formSelector = obj.formSelector;
     this._inputSelector = obj.inputSelector;
@@ -7,7 +7,7 @@ export class FormValidator{
     this._inputErrorClass = obj.inputErrorClass;
     this._errorClass = obj.errorClass;
   }
-  _showInputError(inputSelector, errorMessage){
+  _showInputError(inputSelector, errorMessage) {
     const errorElement = this._formElement.querySelector(`#${inputSelector.id}-error`)
     inputSelector.classList.add(this._inputErrorClass);
     errorElement.classList.add(this._errorClass);
@@ -50,25 +50,25 @@ export class FormValidator{
     });
   };
   // Сбросить ошибки форм
-resetInputError() {
-  const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector))
-  inputList.forEach((inputSelector) => {
+  resetInputError() {
+    const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector))
+    inputList.forEach((inputSelector) => {
       this._hideInputError(inputSelector)
-  })
-};
-// Проверить статус активности кнопки submit
-activityStatusButton() {
-  const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
-  const buttonElement = this._formElement.querySelector(this._submitButtonSelector)
-  this._toggleButtonState(inputList, buttonElement)
-};
+    })
+  };
+  // Проверить статус активности кнопки submit
+  activityStatusButton() {
+    const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
+    const buttonElement = this._formElement.querySelector(this._submitButtonSelector)
+    this._toggleButtonState(inputList, buttonElement)
+  };
 
-enableValidation = () => {
+  enableValidation = () => {
     this._formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
     });
     this._setEventListeners();
-};
+  };
 }
 
 

@@ -1,6 +1,7 @@
 export const popupImage = document.querySelector('.popup_images');
 export const popupAddCard = document.forms.popup_card;
 
+
 const popup = document.querySelectorAll('.popup');
 const popupCloseImage = popupImage.querySelector('.popup__close-image');
 
@@ -19,7 +20,7 @@ export function openClosePopup(elem) {
 export function closePopupEsc(evt) {
     const popupOpened = document.querySelector('.popup_opened')
     if (evt.key === "Escape") {
-       popupAddCard.reset();
+        popupAddCard.reset();
         openClosePopup(popupOpened)
     }
 };

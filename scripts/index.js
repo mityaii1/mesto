@@ -31,21 +31,21 @@ const linkCard = popupAddCard.elements.link_to_image;
 
 // Настройки валидации
 const validationSettings = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button-save',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error_active'
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button-save',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__input-error_active'
 };
 const profileFormValidator = new FormValidator(validationSettings, popupProfile);
-const cardFormValidator = new FormValidator(validationSettings, popupCard); 
+const cardFormValidator = new FormValidator(validationSettings, popupCard);
 
 // Добавить карточки из начального массива
-function addCard (item) {
-      const card = new Card(item, '#element-template');
-      elements.prepend(card.generateCard());
-  };
-  initialCards.forEach(item => addCard(item));
+function addCard(item) {
+    const card = new Card(item, '#element-template');
+    elements.prepend(card.generateCard());
+};
+initialCards.forEach(item => addCard(item));
 
 // Добавить новую карточку из формы
 popupAddCard.addEventListener('submit', function (evt) {
@@ -53,10 +53,8 @@ popupAddCard.addEventListener('submit', function (evt) {
     addCard({
         name: nameCard.value,
         link: linkCard.value
-      });
+    });
     openClosePopup(popupCard);
-    cardFormValidator.resetInputError();
-    cardFormValidator.activityStatusButton();
 })
 
 // Заполнить форму edit profile значениями со страницы
@@ -67,7 +65,7 @@ function popupOpenProfile() {
 };
 
 // Изменить значения profile из формы popup
-function formSubmitHandler(evt) {
+function formProfileSubmitHandler(evt) {
     evt.preventDefault();
     profileTitle.textContent = newName.value;
     profileSubtitle.textContent = newAboutMe.value;
@@ -75,17 +73,19 @@ function formSubmitHandler(evt) {
 };
 
 profileEditButton.addEventListener('click', popupOpenProfile);
-popupContainerProfile.addEventListener('submit', formSubmitHandler);
+popupContainerProfile.addEventListener('submit', formProfileSubmitHandler);
 
-popupCloseEdit.addEventListener('click', () => { 
-    openClosePopup(popupProfile) 
+popupCloseEdit.addEventListener('click', () => {
+    openClosePopup(popupProfile)
 });
-profileAddButton.addEventListener('click', () => { 
-    openClosePopup(popupCard), 
+profileAddButton.addEventListener('click', () => {
+    openClosePopup(popupCard);
+    popupAddCard.reset();
     cardFormValidator.resetInputError();
+    cardFormValidator.activityStatusButton();
 });
-popupCloseCard.addEventListener('click', () => { 
-    openClosePopup(popupCard); popupAddCard.reset() 
+popupCloseCard.addEventListener('click', () => {
+    openClosePopup(popupCard);
 });
 
 // Вызвать валидацию форм
