@@ -1,7 +1,7 @@
 import { openClosePopup, popupAddCard } from './popup.js'
-import { Card } from './Card.js'
+import Card from './Card.js'
 import { initialCards } from './initial-cards.js'
-import { FormValidator } from './FormValidator.js';
+import FormValidator from './FormValidator.js';
 
 
 // Переменные profile
