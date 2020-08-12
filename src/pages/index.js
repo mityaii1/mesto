@@ -87,8 +87,9 @@ popupPreview.setEventListeners();
 
 profileEditButton.addEventListener('click', () => {
     profileEditPopup.open();
-    newName.value = userInfo.getUserInfo().full_name;
-    newAboutMe.value = userInfo.getUserInfo().about_me;
+    const infoAboutUser = userInfo.getUserInfo();
+    newName.value = infoAboutUser.full_name;
+    newAboutMe.value = infoAboutUser.about_me;
     
     profileFormValidator.resetInputError();
     profileFormValidator.activityStatusButton();

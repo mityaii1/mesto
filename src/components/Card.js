@@ -9,7 +9,7 @@ export class Card {
     }
     _getTemplate() {
         const cardElement = document
-            .querySelector('#element-template')
+            .querySelector(this._cardSelector)
             .content
             .querySelector('.element')
             .cloneNode(true);
@@ -45,4 +45,4 @@ export class Card {
         this._elementCard.remove();
         this._elementCard = null;
     }
-};
+}
