@@ -3,6 +3,7 @@
 @import url(./__title/element__title.css);
 @import url(./__button-like/element__button-like.css);
 @import url(./__button-like/_active/element__button-like_active.css);
+@import url(./__number-likes/element__number-likes.css);
 
 .element {
     display: grid;

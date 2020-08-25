@@ -1,0 +1,8 @@
+.element__number-likes{
+    grid-area: button-like;
+    margin-top: 53px;
+    color: #000000;
+    text-align: center;
+    font-size: 13px;
+    line-height: 123%;
+}
