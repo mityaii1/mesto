@@ -50,7 +50,7 @@ const cardFormValidator = new FormValidator(validationSettings, popupCard);
 const avatarFormValidator = new FormValidator(validationSettings, popupAvatar);
 
 // Добавить карточки на страницу
-let addCard;
+const addCard;
 api.getInitialCards()
     .then((res) => {
         addCard = new Section({
@@ -126,7 +126,7 @@ const addCardsPopup = new PopupWithForm('.popup_card', (item) => {
     addCardsPopup.close()
 })
 // Удалить карточку
-let myCards;
+const myCards;
 const removeCardPopup = new PopupWithForm('.popup_remove-card', () => {
     myCards.removeCard();
     api.deleteCard(myCards._cardId)
