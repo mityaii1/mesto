@@ -8,7 +8,8 @@ export default class UserInfo {
   getUserInfo() {
     return {
       full_name: this._fullName.textContent,
-      about_me: this._aboutMe.textContent
+      about_me: this._aboutMe.textContent,
+      avatar: this._avatar.src
     };
   }
   setUserInfo(name, about) {
